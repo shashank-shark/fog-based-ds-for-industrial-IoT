@@ -58,9 +58,9 @@ int main (void)
             else
             {
                 zmsg_send (&msg, frontend);
-                if (--client_nbr == 0) {
-                    break;
-                }
+                // if (--client_nbr == 0) {
+                //     break;
+                // }
             }
         }
         if (items[1].revents & ZMQ_POLLIN)
