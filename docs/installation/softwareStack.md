@@ -18,15 +18,20 @@ First install the necessary dependencies
 
 ```sh
 $ sudo apt-get update
-
+```
+```sh
 $ sudo apt-get install -y git build-essential
-
+```
+```sh
 $ sudo apt-get install -y libtool pkg-config
-
+```
+```sh
 $ sudo apt-get install -y autotools-dev autoconf automake cmake
-
+```
+```sh
 $ sudo apt-get install -y uuid-dev libpcre3-dev
-
+```
+```sh
 $ sudo apt-get install -y libsodium-dev valgrind
 ```
 
@@ -34,18 +39,25 @@ Build libzmq from source
 
 ```sh
 $ git clone git://github.com/zeromq/libzmq.git
-
+```
+```sh
 $ cd libzmq
-
+```
+```sh
 $ ./autogen.sh
-
+```
+```sh
 $ ./configure
-
+```
+```sh
 $ make check
-
+```
+```sh
 $ sudo make install
-
+```
+```sh
 $ sudo ldconfig
-
+```
+```sh
 $ cd ..
 ```
