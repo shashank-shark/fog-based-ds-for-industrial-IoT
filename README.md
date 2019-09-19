@@ -6,11 +6,9 @@
     <summary>Table of Contents</summary>
     <p>
         <details>
-            <summary># 1. Hardware Specifications of Development environment</summary>
+            <summary>[1. Hardware Specifications of Development environment](http://www.google.com)</summary>
             <p>
-                ```python
-                    print ('Hello World')
-                ```
+
             </p>
         </details>
     </p>
