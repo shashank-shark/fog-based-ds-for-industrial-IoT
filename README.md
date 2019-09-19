@@ -1,4 +1,4 @@
-# Fog-based-ds-for-industrial-IoT
+# Design Of Reliable Distributed Systems for Industrial IoT and Fog-Computing
  Fog computing based distributed systems for Industrial IoT
 
 # List of Contents
