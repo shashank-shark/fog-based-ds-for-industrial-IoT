@@ -64,9 +64,9 @@ $ cd ..
 
 ##  **CZMQ**
 
-**High-level C binding for ØMQ**
+### High-level C binding for ØMQ
 
-Note that libzmq is a dependency of czmq.
+#### Note that libzmq is a dependency of czmq.
 
 ```shell
 $ git clone git://github.com/zeromq/czmq.git
@@ -97,7 +97,7 @@ $ cd ..
 
 RabbitMQ is an open-source message-broker software that originally implemented the Advanced Message Queuing Protocol and has since been extended with a plug-in architecture to support Streaming Text Oriented Messaging Protocol, Message Queuing Telemetry Transport, and other protocols.
 
-**#1 Add RabbitMQ Repository to Ubuntu**
+### #1 Add RabbitMQ Repository to Ubuntu
 
 ```shell
 $ wget -O- https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc | sudo apt-key add -
@@ -109,7 +109,7 @@ $ wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-
 $ echo "deb https://dl.bintray.com/rabbitmq/debian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
 ```
 
-**#2 Installing RabbitMQ server on Ubuntu**
+### #2 Installing RabbitMQ server on Ubuntu
 
 ```shell
 $ sudo apt-get update
@@ -118,7 +118,7 @@ $ sudo apt-get update
 $ sudo apt -y install rabbitmq-server
 ```
 
-**#3 Control and Manage Services**
+### #3 Control and Manage Services
 
 ```shell
 $ sudo systemctl status  rabbitmq-server.service 
@@ -135,7 +135,7 @@ If it returns disabled, enable it by running:
 $ sudo systemctl enable rabbitmq-server
 ```
 
-**#4  Enable the RabbitMQ Management Dashboard**
+### #4  Enable the RabbitMQ Management Dashboard
 
 ```shell
 $ sudo rabbitmq-plugins enable rabbitmq_management
