@@ -1,15 +1,8 @@
 # Fog-based-ds-for-industrial-IoT
  Fog computing based distributed systems for Industrial IoT
 
-# TOC
-<details>
-    <summary>Table of Contents</summary>
-    <p>
-        <details>
-            <summary>[1. Hardware Specifications of Development environment](http://www.google.com)</summary>
-            <p>
+# List of Contents
+1. [Information about the hardware used for  development environment](/docs/installation/specs.md)
 
-            </p>
-        </details>
-    </p>
-</details>
+2. [Software Stack used](/docs/installation/softwareStack.md)
+
