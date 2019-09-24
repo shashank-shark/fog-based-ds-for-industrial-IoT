@@ -11,19 +11,19 @@ The below block diagram shows the working of `proxy`
 ----------------
 ## code for having a proxy
 
-### `1 Defining the context`
+### 1 Defining the context
 ```c
 // defining the context first
 void *context = zmq_ctx_new ();
 ```
 
-### `2 Creating the frontend`
+### 2 Creating the frontend
 
 ```c
 void *frontend = zmq_socket (context, ZMQ_XSUB);
 ```
 
-### `3 Assigning the static IP `
+### 3 Assigning the static IP
 
 The reason we use static IP and proxies are because they give us the freedom to add more `servers /  workers` without the change in topology.
 
@@ -40,7 +40,7 @@ void *backend = zmq_socket (context, ZMQ_XPUB);
 zmq_bind (backend, "tcp://localhost:6000");
 ```
 
-### `4 Run the proxy until the user interrupts`
+### 4 Run the proxy until the user interrupts
 
 We could poll the frontend and backend sockets and process the request from the clinet and service their requests via server / workers.
 But, with the help of `zmq_proxy` function we can code it in `one` line.
