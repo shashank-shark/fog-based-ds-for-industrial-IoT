@@ -2,4 +2,4 @@
 
 | TOC  | TOPIC  | LINK  |
 |---|---|---|
-| 1  | Proxy  |  [Link](/proxy/proxy.md) |
+| 1  | Proxy  |  [Link](./proxy/proxy.md) |

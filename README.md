@@ -7,4 +7,4 @@
 |---|---|---|
 |  1 | Information about the hardware used for  development environment  |  [Click Here](/docs/installation/specs.md) |
 | 2  | Software Stack used  | [Click Here](/docs/installation/softwareStack.md)  |
-|  3 | ZMQ Concepts  |  [Click Here](/docs/installation/specs.md) |
+|  3 | ZMQ Concepts  |  [Click Here](/docs/zmqConc/index.md) |
