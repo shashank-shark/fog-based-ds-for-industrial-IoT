@@ -1,4 +1,4 @@
-# A basic Request-Reply client
+# A basic Request-Reply `server-client` program
 
 Here we shall send the word `Hello` to the server and we expect a `World` as reply.
 
