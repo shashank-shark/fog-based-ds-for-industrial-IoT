@@ -15,7 +15,7 @@ From ZeroMQ v4 the support for `ZMQ_ROUTER_RAW` is taken down, instead the use o
 
 The below program shows the usage of `ZMQ_STREAM`.
 
-### czmq-stream-client
+## # czmq-stream-client
 
 First we include the czmq header file.
 
@@ -88,7 +88,7 @@ zctx_destroy (&ctx);
 return 0;
 ```
 
-### czmq-stream-server
+## # czmq-stream-server
 
 ```c
 #include "czmq.h"
@@ -106,7 +106,7 @@ int main (void)
 
         //  Get connection client identity so we can instruct
         // router socket which client to send the response to.
-        
+
         zframe_t *frame = zframe_recv(sock);
         if (!frame)
             break;       //  Ctrl-C interrupt
