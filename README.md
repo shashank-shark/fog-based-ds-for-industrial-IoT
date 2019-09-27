@@ -8,4 +8,4 @@
 |  1 | Information about the hardware used for  development environment  |  [Click Here](/docs/installation/specs.md) |
 | 2  | Software Stack used  | [Click Here](/docs/installation/softwareStack.md)  |
 |  3 | ZMQ Concepts  |  [Click Here](/docs/zmqConc/index.md) |
-|  4 | The Big Data Ecosystem with Apache  |  [Click Here](/docs/kafka/kafka-eco.md) |
+|  4 | The Big Data Ecosystem with Apache Kafka and its use cases  |  [Click Here](/docs/kafka/kafka-eco.md) |

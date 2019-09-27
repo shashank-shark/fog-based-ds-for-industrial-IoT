@@ -1,8 +1,10 @@
-# Apache Kafka - Use Cases
+# Apache Kafka
 
-Apache Kafka provides the circulatory system for the data ecosystem, as shown in the figure below. It carries messages between the various members of the infrastructure, providing a consistent interface for all clients. When coupled with the system to provide message schemas, producers and consumers no longer require tight coupling or direct communications of any sort.
+Apache Kafka provides the circulatory system for the data ecosystem, as shown in the figure below. 
 
 ![Apache Kafka](./Intro-kafka.svg)
+
+It carries messages between the various members of the infrastructure, providing a consistent interface for all clients. When coupled with the system to provide message schemas, producers and consumers no longer require tight coupling or direct communications of any sort.
 
 # Use cases
 
