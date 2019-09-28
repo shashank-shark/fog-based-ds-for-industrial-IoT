@@ -17,7 +17,9 @@ int pthread_create(pthread_t *thread, pthread_attr_t *attr,
 
 ## Program ( `inprocexample.c` )
 
-`Note : ` A socket of type ZMQ_PAIR can only be connected to a single peer at any one time. No message routing or filtering is performed on messages sent over a ZMQ_PAIR socket.
+`Note : `
+
+ A socket of type ZMQ_PAIR can only be connected to a single peer at any one time. No message routing or filtering is performed on messages sent over a `ZMQ_PAIR` socket.
 
 Create a context
 ```c
