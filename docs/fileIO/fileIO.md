@@ -64,6 +64,10 @@ server_thread
         zsocket_bind (router, "tcp://*:6000");
 ```
 
+The client sends the frame as shown below.
+
+![zframe from client requesting fetch](./frame_data_chunk.svg)
+
 The first frame in each message is the senders identity, so we retrieve the identity from the `identity frame`.
 
 ```c
@@ -81,4 +85,38 @@ The second frame is the `fetch` command issued by the `client`.
 char *command = zstr_recv (router);
 assert (streq (command, "fetch"));
 free (command);
+```
+
+The third frame is chunk offset in file. So we read the offset from the frame.
+```c
+char *offset_str = zstr_recv (router);
+size_t offset = atoi (offset_str);
+free (offset_str);
+```
+
+The fourth frame is maximum chunk size. Read the frame and extract the maximum chunk size from it.
+```c
+char *chunksize_str = zstr_recv (router);
+size_t chunksz = atoi (chunksize_str);
+free (chunksize_str);
+```
+
+Now we read chunk of data from file
+```c
+fseek (file, offset, SEEK_SET);
+byte *data = malloc (chunksz);
+assert (data);
+```
+
+We now send the resulting chunk of data to client.
+```c
+size_t size = fread (data, 1, chunksz, file);
+zframe_t *chunk = zframe_new (data, size);
+zframe_send (&identity, router, ZFRAME_MORE);
+zframe_send (&chunk, router, 0);
+```
+
+At the end we close the file.
+```c
+fclose (file);
 ```
