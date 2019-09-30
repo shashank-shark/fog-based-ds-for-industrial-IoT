@@ -114,9 +114,89 @@ size_t size = fread (data, 1, chunksz, file);
 zframe_t *chunk = zframe_new (data, size);
 zframe_send (&identity, router, ZFRAME_MORE);
 zframe_send (&chunk, router, 0);
+}
 ```
 
 At the end we close the file.
 ```c
-fclose (file);
+fclose (file); 
+}
 ```
+
+Now let's move on to the client thread.
+
+## The `client_thread`
+
+Body of client function
+```c
+static void
+client_thread (void *args, zctx_t *ctx, void *pipe)
+{
+    // create a dealer socket
+    void *dealer = zsocket_new (ctx, ZMQ_DEALER);
+
+    // set the High Water Mark to 1
+    zsocket_set_hwm (dealer, 1);
+
+    // connect to server
+    zsocket_connect (dealer, "tcp://localhost:6000");
+}
+```
+Let at first the total bytes recieved be `0` and the total number of chunks recieved be `0`.
+```c
+size_t total = 0;
+size_t chunks = 0;
+```
+
+Now we start reading the file.
+
+```c
+while (true)
+{
+    // send the fetch request
+    zstr_sendm (dealer, "fetch");
+    zstr_sendfm (dealer, "%ld", total);
+    zstr_sendf (dealer, "%d", CHUNK_SIZE);
+```
+
+Now recieve the chunk from the server.
+```c
+zframe_t *chunk = zframe_recv (dealer);
+```
+
+If the chunk is empty then we exit the loop and it is to say that entire file has been sent by ther server and there's nothing left.
+```c
+if (!chunk)
+    break;
+chunks ++;
+```
+
+Retrive the chunk size from the frame by the help of `zframe_size` function.
+```c
+size_t size = zframe_size (chunk);
+```
+
+```c
+// once successfully recieved we print
+zframe_print (chunk, "\n");
+zframe_destroy (&chunk);
+```
+
+Add the size of the chunk recieved to the total size.
+```c
+total = total + size;
+```
+
+Also, when the size of chunk recieved is lesser than the `CHUNK_SIZE` then we exit the loop and print the total number of chunks recieved and also print the total number of bytes recieved.
+```c
+if (size < CHUNK_SIZE)
+    break;
+}
+
+printf ("%zd chunks recieved, %zd bytes\n", chunks, total);
+
+// say that we are done. Anything except "fetch" will signal the server_thread to exit.
+zstr_send (pipe, "OK");
+}
+```
+
