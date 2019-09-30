@@ -114,13 +114,11 @@ size_t size = fread (data, 1, chunksz, file);
 zframe_t *chunk = zframe_new (data, size);
 zframe_send (&identity, router, ZFRAME_MORE);
 zframe_send (&chunk, router, 0);
-}
 ```
 
 At the end we close the file.
 ```c
 fclose (file); 
-}
 ```
 
 Now let's move on to the client thread.
@@ -191,12 +189,10 @@ Also, when the size of chunk recieved is lesser than the `CHUNK_SIZE` then we ex
 ```c
 if (size < CHUNK_SIZE)
     break;
-}
 
 printf ("%zd chunks recieved, %zd bytes\n", chunks, total);
 
 // say that we are done. Anything except "fetch" will signal the server_thread to exit.
 zstr_send (pipe, "OK");
-}
 ```
 
